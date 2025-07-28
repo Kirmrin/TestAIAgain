@@ -4,7 +4,7 @@ agents:
   generator:
     name: "Prompt Generator"
     description: "Генерирует высококачественные промпты на основе спецификаций"
-    model_name: "gpt-4"
+    model_name: "GigaChat-Pro"
     temperature: 0.7
     max_tokens: 1000
     system_prompt: |
@@ -16,7 +16,7 @@ agents:
   analyzer:
     name: "Prompt Analyzer"
     description: "Анализирует качество промптов по различным метрикам"
-    model_name: "gpt-4"
+    model_name: "GigaChat-Pro"
     temperature: 0.3
     max_tokens: 800
     system_prompt: |
@@ -28,7 +28,7 @@ agents:
   tester:
     name: "Prompt Tester"
     description: "Тестирует промпты с различными параметрами"
-    model_name: "gpt-4"
+    model_name: "GigaChat-Pro"
     temperature: 0.5
     max_tokens: 1200
     system_prompt: |
@@ -40,7 +40,7 @@ agents:
   editor:
     name: "Prompt Editor"
     description: "Редактирует и оптимизирует промпты на основе обратной связи"
-    model_name: "gpt-4"
+    model_name: "GigaChat-Pro"
     temperature: 0.6
     max_tokens: 1000
     system_prompt: |
@@ -51,7 +51,7 @@ agents:
 
 # Глобальные настройки
 global:
-  default_model: "gpt-4"
+  default_model: "GigaChat-Pro"
   max_retries: 3
   timeout: 30
   log_level: "INFO"

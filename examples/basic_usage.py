@@ -161,9 +161,9 @@ async def comparative_example():
 
 if __name__ == "__main__":
     # Проверка наличия API ключа
-    if not os.getenv("OPENAI_API_KEY"):
-        print("⚠️  Внимание: OPENAI_API_KEY не установлен!")
-        print("Создайте файл .env на основе .env.example и добавьте ваш API ключ")
+    if not os.getenv("GIGACHAT_CREDENTIALS"):
+        print("⚠️  Внимание: GIGACHAT_CREDENTIALS не установлен!")
+        print("Создайте файл .env на основе .env.example и добавьте ваши учетные данные GigaChat")
     else:
         # Запуск примеров
         asyncio.run(main())
