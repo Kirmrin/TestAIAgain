@@ -19,7 +19,7 @@ class AgentManager:
             agent_type=AgentType.GENERATOR,
             name="Prompt Generator",
             description="Генерирует высококачественные промпты на основе спецификаций",
-            model_name="gpt-4",
+            model_name="GigaChat",
             temperature=0.7,
             max_tokens=1000,
             system_prompt="""Ты эксперт по созданию промптов для AI систем. 
@@ -33,7 +33,7 @@ class AgentManager:
             agent_type=AgentType.ANALYZER,
             name="Prompt Analyzer",
             description="Анализирует качество промптов по различным метрикам",
-            model_name="gpt-4",
+            model_name="GigaChat",
             temperature=0.3,
             max_tokens=800,
             system_prompt="""Ты эксперт по анализу промптов. 
@@ -47,7 +47,7 @@ class AgentManager:
             agent_type=AgentType.TESTER,
             name="Prompt Tester",
             description="Тестирует промпты с различными параметрами",
-            model_name="gpt-4",
+            model_name="GigaChat",
             temperature=0.5,
             max_tokens=1200,
             system_prompt="""Ты эксперт по тестированию промптов. 
@@ -61,7 +61,7 @@ class AgentManager:
             agent_type=AgentType.EDITOR,
             name="Prompt Editor",
             description="Редактирует и оптимизирует промпты на основе обратной связи",
-            model_name="gpt-4",
+            model_name="GigaChat",
             temperature=0.6,
             max_tokens=1000,
             system_prompt="""Ты эксперт по редактированию промптов. 

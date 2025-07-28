@@ -1,6 +1,8 @@
 import uuid
 from typing import Dict, Any
-from langchain_openai import ChatOpenAI
+# Удаляем импорт ChatOpenAI и подготавливаем окружение
+
+import os
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
@@ -13,10 +15,17 @@ class AnalyzerAgent(BaseAgent):
     
     def _setup_llm(self):
         """Настройка LLM для анализа"""
-        self.llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        # Используем GigaChat через библиотеку Gigachain
+        from os import getenv
+        from langchain_community.chat_models import GigaChat  # импорт внутри, чтобы избежать циклов при тестах
+
+        self.llm = GigaChat(
+            model=self.config.model_name,
             temperature=self.config.temperature,
-            max_tokens=self.config.max_tokens
+            max_tokens=self.config.max_tokens,
+            # Токен берётся из переменной окружения GIGACHAT_TOKEN / GIGACHAT_CREDENTIALS
+            credentials=getenv("GIGACHAT_TOKEN") or getenv("GIGACHAT_CREDENTIALS"),
+            verify_ssl_certs=False,
         )
     
     async def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:

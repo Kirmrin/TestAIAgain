@@ -1,6 +1,7 @@
 import uuid
 from typing import Dict, Any
-from langchain_openai import ChatOpenAI
+import os
+from langchain_community.chat_models import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
@@ -13,10 +14,13 @@ class GeneratorAgent(BaseAgent):
     
     def _setup_llm(self):
         """Настройка LLM для генерации"""
-        self.llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        from os import getenv
+        self.llm = GigaChat(
+            model=self.config.model_name,
             temperature=self.config.temperature,
-            max_tokens=self.config.max_tokens
+            max_tokens=self.config.max_tokens,
+            credentials=getenv("GIGACHAT_TOKEN") or getenv("GIGACHAT_CREDENTIALS"),
+            verify_ssl_certs=False,
         )
     
     async def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
