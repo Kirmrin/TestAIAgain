@@ -1,0 +1,55 @@
+# Конфигурация тестирования промптов
+
+# Параметры по умолчанию для тестирования
+default_parameters:
+  temperature: [0.1, 0.5, 0.9]
+  max_tokens: [100, 500, 1000]
+  top_p: [0.1, 0.5, 0.9]
+  frequency_penalty: [0.0, 0.5, 1.0]
+  presence_penalty: [0.0, 0.5, 1.0]
+  iterations: 3
+
+# Тестовые входные данные по умолчанию
+default_test_inputs:
+  - "Простой тестовый запрос"
+  - "Сложный запрос с множественными требованиями"
+  - "Запрос на творческую задачу"
+  - "Технический запрос с специфическими деталями"
+  - "Запрос на анализ текста"
+
+# Метрики для оценки
+metrics:
+  accuracy:
+    weight: 0.3
+    description: "Точность ответов"
+  
+  consistency:
+    weight: 0.2
+    description: "Консистентность ответов"
+  
+  relevance:
+    weight: 0.25
+    description: "Релевантность ответов"
+  
+  creativity:
+    weight: 0.15
+    description: "Креативность ответов"
+  
+  response_time:
+    weight: 0.1
+    description: "Время ответа"
+
+# Пороговые значения для рекомендаций
+thresholds:
+  accuracy_min: 0.7
+  response_time_max: 5.0
+  token_efficiency_min: 0.5
+  overall_score_min: 0.6
+
+# Настройки тестирования
+testing:
+  max_concurrent_tests: 5
+  timeout_per_test: 30
+  retry_failed_tests: true
+  max_retries: 2
+  save_intermediate_results: true
