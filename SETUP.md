@@ -20,7 +20,7 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Редактирование файла .env
-# Добавьте ваш OpenAI API ключ
+# Добавьте ваши учетные данные GigaChat
 nano .env
 ```
 
@@ -76,7 +76,9 @@ default_parameters:
 
 ```bash
 # API ключи
-OPENAI_API_KEY=your_openai_api_key_here
+GIGACHAT_CREDENTIALS=your_gigachat_credentials_here
+GIGACHAT_SCOPE=GIGACHAT_API_PERS
+GIGACHAT_VERIFY_SSL_CERTS=false
 GIGACHAT_API_KEY=your_gigachat_api_key_here
 
 # Настройки сервера
@@ -238,7 +240,7 @@ curl "http://localhost:8000/api/v1/agents/status"
 
 1. **Ошибка API ключа**
    ```
-   Решение: Проверьте правильность OPENAI_API_KEY в файле .env
+   Решение: Проверьте правильность GIGACHAT_CREDENTIALS в файле .env
    ```
 
 2. **Ошибка импорта модулей**

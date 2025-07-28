@@ -1,7 +1,8 @@
 import uuid
 import time
+import os
 from typing import Dict, Any, List
-from langchain_openai import ChatOpenAI
+from langchain_gigachat import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
@@ -15,10 +16,13 @@ class TesterAgent(BaseAgent):
     
     def _setup_llm(self):
         """Настройка LLM для тестирования"""
-        self.llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        self.llm = GigaChat(
+            credentials=os.getenv("GIGACHAT_CREDENTIALS"),
+            scope=os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS"),
+            model=self.config.model_name,
             temperature=self.config.temperature,
-            max_tokens=self.config.max_tokens
+            max_tokens=self.config.max_tokens,
+            verify_ssl_certs=os.getenv("GIGACHAT_VERIFY_SSL_CERTS", "false").lower() == "true"
         )
     
     async def execute(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -70,11 +74,14 @@ class TesterAgent(BaseAgent):
         start_time = time.time()
         
         # Создание LLM с тестовыми параметрами
-        test_llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        test_llm = GigaChat(
+            credentials=os.getenv("GIGACHAT_CREDENTIALS"),
+            scope=os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS"),
+            model=self.config.model_name,
             temperature=temperature,
             max_tokens=max_tokens,
-            top_p=top_p
+            top_p=top_p,
+            verify_ssl_certs=os.getenv("GIGACHAT_VERIFY_SSL_CERTS", "false").lower() == "true"
         )
         
         # Формирование полного промпта
