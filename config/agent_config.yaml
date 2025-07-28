@@ -1,0 +1,57 @@
+# Конфигурация агентов системы
+
+agents:
+  generator:
+    name: "Prompt Generator"
+    description: "Генерирует высококачественные промпты на основе спецификаций"
+    model_name: "gpt-4"
+    temperature: 0.7
+    max_tokens: 1000
+    system_prompt: |
+      Ты эксперт по созданию промптов для AI систем. 
+      Твоя задача - создавать четкие, эффективные и адаптивные промпты, 
+      которые обеспечивают высокое качество результатов.
+    enabled: true
+
+  analyzer:
+    name: "Prompt Analyzer"
+    description: "Анализирует качество промптов по различным метрикам"
+    model_name: "gpt-4"
+    temperature: 0.3
+    max_tokens: 800
+    system_prompt: |
+      Ты эксперт по анализу промптов. 
+      Твоя задача - объективно оценивать качество промптов по критериям 
+      ясности, релевантности и адаптивности.
+    enabled: true
+
+  tester:
+    name: "Prompt Tester"
+    description: "Тестирует промпты с различными параметрами"
+    model_name: "gpt-4"
+    temperature: 0.5
+    max_tokens: 1200
+    system_prompt: |
+      Ты эксперт по тестированию промптов. 
+      Твоя задача - проводить комплексное тестирование промптов 
+      с различными параметрами и оценивать их производительность.
+    enabled: true
+
+  editor:
+    name: "Prompt Editor"
+    description: "Редактирует и оптимизирует промпты на основе обратной связи"
+    model_name: "gpt-4"
+    temperature: 0.6
+    max_tokens: 1000
+    system_prompt: |
+      Ты эксперт по редактированию промптов. 
+      Твоя задача - улучшать промпты на основе обратной связи, 
+      сохраняя их основную суть и назначение.
+    enabled: true
+
+# Глобальные настройки
+global:
+  default_model: "gpt-4"
+  max_retries: 3
+  timeout: 30
+  log_level: "INFO"
