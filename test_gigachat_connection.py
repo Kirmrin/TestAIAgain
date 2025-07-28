@@ -6,7 +6,7 @@
 import os
 import asyncio
 from dotenv import load_dotenv
-from langchain_community.chat_models import GigaChat
+from langchain_gigachat import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 # Загрузка переменных окружения
@@ -42,7 +42,7 @@ def test_gigachat_connection():
         client = GigaChat(
             credentials=os.getenv("GIGACHAT_CREDENTIALS"),
             scope=os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS"),
-            model="GigaChat-Pro",
+            model="GigaChat",
             temperature=0.7,
             max_tokens=100,
             verify_ssl_certs=os.getenv("GIGACHAT_VERIFY_SSL_CERTS", "false").lower() == "true"
@@ -93,7 +93,7 @@ async def test_different_parameters(client):
             test_client = GigaChat(
                 credentials=os.getenv("GIGACHAT_CREDENTIALS"),
                 scope=os.getenv("GIGACHAT_SCOPE", "GIGACHAT_API_PERS"),
-                model="GigaChat-Pro",
+                model="GigaChat",
                 temperature=params["temperature"],
                 max_tokens=params["max_tokens"],
                 verify_ssl_certs=os.getenv("GIGACHAT_VERIFY_SSL_CERTS", "false").lower() == "true"

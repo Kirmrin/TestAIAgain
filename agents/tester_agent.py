@@ -2,7 +2,7 @@ import uuid
 import time
 import os
 from typing import Dict, Any, List
-from langchain_community.chat_models import GigaChat
+from langchain_gigachat import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
