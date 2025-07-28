@@ -161,8 +161,8 @@ async def comparative_example():
 
 if __name__ == "__main__":
     # Проверка наличия API ключа
-    if not os.getenv("OPENAI_API_KEY"):
-        print("⚠️  Внимание: OPENAI_API_KEY не установлен!")
+    if not os.getenv("GIGACHAT_TOKEN"):
+        print("⚠️  Внимание: GIGACHAT_TOKEN не установлен!")
         print("Создайте файл .env на основе .env.example и добавьте ваш API ключ")
     else:
         # Запуск примеров

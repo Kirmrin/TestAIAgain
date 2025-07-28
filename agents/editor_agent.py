@@ -1,6 +1,6 @@
 import uuid
 from typing import Dict, Any, List
-from langchain_openai import ChatOpenAI
+from gigachain.llms.gigachat import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
@@ -13,8 +13,8 @@ class EditorAgent(BaseAgent):
     
     def _setup_llm(self):
         """Настройка LLM для редактирования"""
-        self.llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        self.llm = GigaChat(
+            model=self.config.model_name,
             temperature=self.config.temperature,
             max_tokens=self.config.max_tokens
         )

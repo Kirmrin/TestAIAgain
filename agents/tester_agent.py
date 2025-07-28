@@ -1,7 +1,7 @@
 import uuid
 import time
 from typing import Dict, Any, List
-from langchain_openai import ChatOpenAI
+from gigachain.llms.gigachat import GigaChat
 from langchain.schema import HumanMessage, SystemMessage
 
 from .base_agent import BaseAgent
@@ -15,8 +15,8 @@ class TesterAgent(BaseAgent):
     
     def _setup_llm(self):
         """Настройка LLM для тестирования"""
-        self.llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        self.llm = GigaChat(
+            model=self.config.model_name,
             temperature=self.config.temperature,
             max_tokens=self.config.max_tokens
         )
@@ -70,8 +70,8 @@ class TesterAgent(BaseAgent):
         start_time = time.time()
         
         # Создание LLM с тестовыми параметрами
-        test_llm = ChatOpenAI(
-            model_name=self.config.model_name,
+        test_llm = GigaChat(
+            model=self.config.model_name,
             temperature=temperature,
             max_tokens=max_tokens,
             top_p=top_p

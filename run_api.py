@@ -19,9 +19,9 @@ def main():
     """Основная функция запуска API сервера"""
     
     # Проверка наличия API ключа
-    if not os.getenv("OPENAI_API_KEY"):
-        logger.warning("OPENAI_API_KEY не установлен!")
-        logger.info("Создайте файл .env на основе .env.example и добавьте ваш API ключ")
+    if not os.getenv("GIGACHAT_TOKEN"):
+        logger.warning("GIGACHAT_TOKEN не установлен!")
+        logger.info("Создайте файл .env на основе .env.example и добавьте ваш GigaChat токен")
         logger.info("Для тестирования можно использовать демо-режим")
     
     # Настройки сервера

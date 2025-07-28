@@ -35,7 +35,13 @@ pip install -r requirements.txt
 
 ```bash
 cp .env.example .env
-# Отредактируйте .env файл с вашими API ключами
+# Отредактируйте .env файл и добавьте ваш GIGACHAT_TOKEN
+```
+
+### Пример .env файла
+
+```env
+GIGACHAT_TOKEN=your_gigachat_token
 ```
 
 ### 3. Запуск API сервера
